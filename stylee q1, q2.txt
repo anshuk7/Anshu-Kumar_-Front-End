@@ -1,0 +1,12 @@
+1) The basic functionality of the List component is to render an unordered list element (ul) that displays a set of list item elements (li). Each list item contains the text content of an item that is passed to the component as an array prop. The component also includes an interactive feature where it changes the background color of the selected item upon user click. The List component is written as a functional React component.
+
+
+
+
+2) There are several issues that need to be addressed with the code:
+
+Firstly, in the handleClick function of the WrappedListComponent, the setSelectedIndex function is being called without any argument, which will result in selectedIndex becoming undefined instead of null as intended. To fix this, the correct syntax should be setSelectedIndex(null).
+
+Secondly, the PropTypes for the items array in WrappedListComponent is incorrect. Instead of PropTypes.array(PropTypes.shapeOf(...)), it should be PropTypes.arrayOf(PropTypes.shape({...})). The PropTypes.shape({...}) object should contain the definition of the object that is expected in the items array.
+
+Lastly, the isSelected prop of the SingleListItem is not being passed the correct value. It should be isSelected={selectedIndex === index} instead of isSelected={selectedIndex}.
